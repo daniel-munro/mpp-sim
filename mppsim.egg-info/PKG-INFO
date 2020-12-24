@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: mppsim
+Version: 1.0
+Summary: Multi-parent population simulator
+Home-page: https://github.com/daniel-munro/mpp-sim
+Author: Daniel Munro
+Author-email: dan@dmun.ro
+License: UNKNOWN
+Description: # mpp-sim: multi-parent population simulator
+        
+        This package provides tools for genetic simulation of multi-parent populations, i.e. the breeding of diploid organisms over generations. It contains presets for simulating existing model organism populations, though currently only includes HS rats. It contains functions for animated plotting, and will eventually provide tools for comparing real data to simulations in terms of genetic diversity.
+        
+        ## Dependencies
+        
+        - Python 3.6+
+        - numpy
+        - pandas
+        - progress
+        - matplotlib
+        
+        ## Installation
+        
+        Clone the repository or [download and unzip](***).  To get Python dependencies and be able to run or import the modules from any directory, install with pip (or pip3 if pip = pip2)::
+        
+        ```
+        pip install -e mpp-sim/
+        ```
+        
+        ## Running a simulation
+        
+        Inputs:
+        
+        - Parameters like population size, F/M ratio, number of founders, number of generations
+        - Breeding options like breeding scheme
+        - The species (if mouse, rat, human, ...), which determines the chromosome number and lengths. Otherwise, provide this information. In the latter case, for proper distribution of recombinations across chromosomes, a genetic map linking genetic positions to physical positions should be provided.
+        
+        Outputs:
+        
+        - The basic simulation output is a table giving the spans of founder haplotypes across each chromosome in each individual.
+        - If founder genotypes are provided, the population genotypes can be produced.
+        
+        ## Visualization tools
+        
+        - Founder haplotypes across chromosomes can be plotted directly or as proportions within the population.
+        - Diversity per locus can be calculated for a sample of loci for comparison across generations, between breeding methods or parameters, or against diversity calculated from real data.
+        - If founder genotypes are provided and the population genotypes are computed, genetic diversity can be computed and compared to real data.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: tests
+Provides-Extra: docs

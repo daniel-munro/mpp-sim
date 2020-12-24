@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mpp-sim &mdash; mpp-sim  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="#" class="icon icon-home" alt="Documentation Home"> mpp-sim
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">mpp-sim</a><ul>
+<li><a class="reference internal" href="#running-a-simulation">Running a simulation</a></li>
+<li><a class="reference internal" href="#visualization-tools">Visualization tools</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">mpp-sim</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>mpp-sim</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mpp-sim">
+<h1>mpp-sim<a class="headerlink" href="#mpp-sim" title="Permalink to this headline">¶</a></h1>
+<p>This package provides tools for genetic simulation of multi-parent populations, i.e. the breeding of diploid organisms over generations. It contains presets for simulating existing model organism populations, though currently only includes HS rats. It contains functions for animated plotting, and will eventually provide tools for comparing real data to simulations in terms of genetic diversity.</p>
+<div class="section" id="running-a-simulation">
+<h2>Running a simulation<a class="headerlink" href="#running-a-simulation" title="Permalink to this headline">¶</a></h2>
+<p>A simulation is run using preset specifications for an MPP along with parameters like population size and number of generations. The random assortment and recombination locations of chromosomes are recorded for each generation. Recombinations are determined from the genetic maps for the orgnism’s chromosomes.</p>
+<p>The basic simulation output is a table giving the spans of founder haplotypes across each chromosome in each individual, in each generation, in each simulation.</p>
+</div>
+<div class="section" id="visualization-tools">
+<h2>Visualization tools<a class="headerlink" href="#visualization-tools" title="Permalink to this headline">¶</a></h2>
+<p>Founder haplotypes across chromosomes can be plotted and animated across generations. Diversity (Shannon entropy) per locus can be calculated for a sample of loci for comparison across generations, between breeding methods or parameters, or against diversity calculated from real data.</p>
+<span class="target" id="module-mppsim.core"></span><dl class="py function">
+<dt id="mppsim.core.HS_rat_simulation">
+<code class="sig-prename descclassname">mppsim.core.</code><code class="sig-name descname">HS_rat_simulation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_pairs</span></em>, <em class="sig-param"><span class="n">n_simulations</span></em>, <em class="sig-param"><span class="n">n_generations</span></em>, <em class="sig-param"><span class="n">chromosomes</span><span class="o">=</span><span class="default_value">range(1, 21)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mppsim.core.HS_rat_simulation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate an HS rat population with circular pair mating.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_pairs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of pairs of rats in the population (i.e. population size is twice this).</p></li>
+<li><p><strong>n_simulations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of independent simulations to run.</p></li>
+<li><p><strong>n_generations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of generations to run per simulation (not including the initial population stage).</p></li>
+<li><p><strong>chromosomes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – List of chromosomes (as integers) to simulate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulations</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Simulations object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mppsim.core.HS_rat_simulation_random">
+<code class="sig-prename descclassname">mppsim.core.</code><code class="sig-name descname">HS_rat_simulation_random</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_pairs</span></em>, <em class="sig-param"><span class="n">n_simulations</span></em>, <em class="sig-param"><span class="n">n_generations</span></em>, <em class="sig-param"><span class="n">chromosomes</span><span class="o">=</span><span class="default_value">range(1, 21)</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mppsim.core.HS_rat_simulation_random" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulate an HS rat population with random pair mating.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n_pairs</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of pairs of rats in the population (i.e. population size is twice this).</p></li>
+<li><p><strong>n_simulations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of independent simulations to run.</p></li>
+<li><p><strong>n_generations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of generations to run per simulation (not including the initial population stage).</p></li>
+<li><p><strong>chromosomes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code>) – List of chromosomes (as integers) to simulate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Simulations</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A Simulations object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-mppsim.plot"></span><dl class="py function">
+<dt id="mppsim.plot.animate_generations">
+<code class="sig-prename descclassname">mppsim.plot.</code><code class="sig-name descname">animate_generations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="n">summary</span><span class="o">=</span><span class="default_value">'positions'</span></em>, <em class="sig-param"><span class="n">fps</span><span class="o">=</span><span class="default_value">5</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mppsim.plot.animate_generations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create an animated plot of a chromosome across a population over generations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – A table of simulation results containing one chromosome type.</p></li>
+<li><p><strong>summary</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – “positions” to show entropy across the chromosome, “chrono” to show entropy distribution and segment length distribution per generation, “all” for all of these, and None for no summary panels.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">FuncAnimation</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A matplotlib.FuncAnimation object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mppsim.plot.plot_haplotypes">
+<code class="sig-prename descclassname">mppsim.plot.</code><code class="sig-name descname">plot_haplotypes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="n">entropy_panel</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mppsim.plot.plot_haplotypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot one chromosome across a population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – A table of simulation results containing one chromosome type and one generation.</p></li>
+<li><p><strong>entropy_panel</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Whether to include a panel for entropy along the chromosome.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Figure</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A matplotlib figure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-mppsim.stats"></span><dl class="py function">
+<dt id="mppsim.stats.entropy_summary">
+<code class="sig-prename descclassname">mppsim.stats.</code><code class="sig-name descname">entropy_summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em>, <em class="sig-param"><span class="n">n_pos</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mppsim.stats.entropy_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store 5%, 50%, and 95% entropy quantiles per generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – A table of simulation results containing one chromosome type.</p></li>
+<li><p><strong>n_pos</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of equally-spaced positions at which to sample entropy.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A table with columns “generation”, “lower”, “median”, and “upper”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mppsim.stats.region_length_summary">
+<code class="sig-prename descclassname">mppsim.stats.</code><code class="sig-name descname">region_length_summary</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">table</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mppsim.stats.region_length_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Store 5%, 50%, and 95% length quantiles per generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>table</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – A table of simulation results containing one chromosome type.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A table with columns “generation”, “lower”, “median”, and “upper”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Daniel Munro
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

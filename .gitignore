@@ -1,0 +1,4 @@
+.DS_Store
+mppsim/__pycache__
+example/*
+!example/example.py
