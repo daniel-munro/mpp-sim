@@ -12,7 +12,7 @@ This package provides tools for genetic simulation of multi-parent populations, 
 
 ## Installation
 
-Clone the repository or [download and unzip](https://github.com/daniel-munro/mpp-sim/archive/master.zip).  To get Python dependencies and be able to run or import the modules from any directory, install with pip (or pip3 if pip = pip2)::
+Clone the repository or [download and unzip](https://github.com/daniel-munro/mpp-sim/archive/main.zip).  To get Python dependencies and be able to run or import the modules from any directory, install with pip (or pip3 if pip = pip2):
 
 ```
 pip install -e mpp-sim/
